@@ -19,7 +19,6 @@ const readFile = (file=> {
         reject(new Error("Archivo no fue encontrado"))
       }
       resolve(data)
-      console.log('Exito al procesar la data' + data);
     });
   });
   return promise

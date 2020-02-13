@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/CorinaVaras/SCL012-MD-Links-/issues"
   },
-  "homepage": "https://github.com/CorinaVaras/SCL012-MD-Links-#readme"
+  "homepage": "https://github.com/CorinaVaras/SCL012-MD-Links-#readme",
+  "dependencies": {
+    "markdown-it": "^10.0.0",
+    "marked": "^0.8.0"
+  }
 }
