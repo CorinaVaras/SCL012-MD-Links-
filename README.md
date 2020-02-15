@@ -7,7 +7,7 @@
 # Modo de Uso
 ## 1. Para instalar está librería tienes que tener instalado Node.js en tu computador.
 ## 2. Para ejecutarla tendrás que ejecutar el siguiente comando el la terminal de tu archivo
-`npm i md-links-CorinaVaras`
+`npm i md-links-corina-varas`
 ## 3. Para hacer uso de la librería escribe el siguiente comando
 `node mdlinks tuarchivo.md`
 
