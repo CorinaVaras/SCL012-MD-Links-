@@ -1,27 +1,16 @@
-const fs = require("fs");
-
-// Verifica si un archivo es Markdown
-const md = (path)=>{
-  if(path.slice(-3) == ".md"){
-  console.log(path)
-  }
-  else{
-    console.log("error");
-  }
-  return md;
-  };
+const fs = require('fs');
 
 // Función que me leé los archivos 
-const readFile = (file=> {
-  let promise = new Promise ((resolve, reject) => {
+const readFile = (file => {
+  let promise = new Promise((resolve, reject) => {
     fs.readFile(file, "UTF-8", (error, data) => {
-      if(error){
+      if (error) {
         reject(new Error("Archivo no fue encontrado"))
       }
-      resolve(data)
+      resolve(data);
     });
   });
-  return promise
+  return promise;
 });
 module.exports = readFile;
 

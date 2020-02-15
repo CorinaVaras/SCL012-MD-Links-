@@ -1,5 +1,5 @@
 let path = require('path');
-const mdlinks = require('./index')
+const mdlinks = require('./index');
 const marked = require('marked');
 const fetch = require('node-fetch');
 const chalk = require('chalk');
@@ -8,23 +8,29 @@ let file = process.argv[2]; // matriz que contiene los argumentos de la línea d
 file = path.resolve(file);
 file = path.normalize(file); // si hay errores de escritura, los resuelve para leerlos bien 
 
-mdlinks(file)
-	.then((data) => {
-		let renderer = new marked.Renderer();
-		let links = [];
-		renderer.link = function (href, title, text) {
-			links.push({
-					href: href,
-					text: text,
-					file: file,
-				});
-		};
-		marked(data, { renderer: renderer }); // obtiene los links en un array de object
-		let resultGet = getLinks(links); // funcion que filtra los links
-		statusLink(resultGet); // válida status de los links
-	}).catch((err) => {
-		console.log(err);
-	});
+// Verifica si un archivo es Markdown
+	
+if(path.extname(file) === ".md"){
+	mdlinks(file)
+		.then((data) => {
+			let renderer = new marked.Renderer();
+			let links = [];
+			renderer.link = function (href, title, text) {
+				links.push({
+						href: href,
+						text: text,
+						file: file,
+					});
+			};
+			marked(data, { renderer: renderer }); // obtiene los links en un array de object
+			let resultGet = getLinks(links); // funcion que filtra los links
+			statusLink(resultGet); // válida status de los links
+		}).catch((err) => {
+			console.log(err);
+		});
+} else{
+	console.log(chalk.red('Introduce un archivo markdown válido'))
+};
 
 // función que filtra todos los links
 function getLinks(links) {
